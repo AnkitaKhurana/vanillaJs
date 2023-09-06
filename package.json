@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "build" : "webpack watch", 
+    "dev-server": "webpack serve --open",
+    "dev": "webpack-dev-server --mode development --open"
+
+  },
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "script-loader": "^0.7.2",
+    "style-loader": "^3.3.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2"
+  }
+}

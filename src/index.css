@@ -1,0 +1,26 @@
+h1 {
+  color: red;
+  text-align: center;
+}
+
+.nav {
+  padding: 10x;
+}
+
+.nav ul {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  padding: 10px;
+  display: inline-block;
+}
+
+.nav ul li a {
+  color: red;
+  cursor: pointer;
+  text-decoration: underline;
+}
