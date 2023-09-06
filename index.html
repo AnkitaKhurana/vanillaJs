@@ -9,23 +9,31 @@
 </head>
 
 <body>
-  <script type="module" src="./dist/bundle.js"></script>   
-    <my-router>
+  <script type="module" src="/dist/bundle.js"></script>
+  <my-router style="display: block; height: 100%;">
+    <my-route path="/" title="Dashboard" component="my-dashboard">
+    </my-route>
+    <my-route path="/home" title="Home" component="my-home">
+    </my-route>
+    <my-route path="/categories" title="Categories" component="my-categories">
+    </my-route>
+    <my-route path="/category/*" title="Product Category" component="my-category-product">
+    </my-route>
+    <my-route path="*" title="404" component="my-notfound">
+    </my-route>
+    <my-navbar></my-navbar>
+    <div class="main">
       <nav class="nav">
         <ul>
           <li><a route="/">Dashboard</a></li>
           <li><a route="/home">Home</a></li>
+          <li><a route="/categories">Categories</a></li>
         </ul>
       </nav>
-      <my-route path="/" title="Dashboard" component="my-dashboard">
-      </my-route>
-      <my-route path="/home" title="Home" component="my-home">
-      </my-route>
-      <my-route path="*" title="404" component="my-notfound">
-      </my-route>
-      <my-navbar></my-navbar>
-      <my-outlet></my-outlet>
-    </my-router>
+      <my-outlet class="main-area"></my-outlet>
+    </div>
+
+  </my-router>
 </body>
 
 </html>

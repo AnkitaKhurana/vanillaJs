@@ -1,6 +1,7 @@
-h1 {
-  color: red;
-  text-align: center;
+html,
+body {
+  margin: 0px;
+  height: 100%;
 }
 
 .nav {

@@ -68,7 +68,7 @@ export default class Router extends HTMLElement {
      * </my-router>
      */
     get outlet() {
-        return this.querySelector("my-outlet");
+        return document.querySelector("my-outlet");
     }
 
     get root() {
@@ -81,8 +81,8 @@ export default class Router extends HTMLElement {
      * title attribute to the my-route tag
      */
     get routes() {
-        return Array.from(this.querySelectorAll("my-route"))
-            .filter(node => node.parentNode === this)
+        const routes =  Array.from(document.querySelectorAll("my-route/*"))
+            .filter(node => node.parentNode.nodeName === this.nodeName)
             .map(r => ({
                 path: r.getAttribute("path"),
                 // Optional: document title
@@ -92,12 +92,12 @@ export default class Router extends HTMLElement {
                 // Bundle path if lazy loading the component
                 resourceUrl: r.getAttribute("resourceUrl")
             }));
+            return routes;
     }
 
     connectedCallback() {
         this.updateLinks();
         this.navigate(window.location.pathname);
-
         window.addEventListener("popstate", this._handlePopstate);
     }
 
@@ -117,7 +117,7 @@ export default class Router extends HTMLElement {
          * Add custom click event handler to prevent the default
          * behaviour and navigate to the registered route onclick.
          */
-        this.querySelectorAll("a[route]").forEach(link => {
+        document.querySelectorAll("a[route]").forEach(link => {
             const target = link.getAttribute("route");
             link.setAttribute("href", target);
             link.onclick = e => {
@@ -127,11 +127,11 @@ export default class Router extends HTMLElement {
         });
     }
 
-    navigate(url) {
+    navigate(url,data) {
         const matchedRoute = match(this.routes, url);
         if (matchedRoute !== null) {
             this.activeRoute = matchedRoute;
-            window.history.pushState(null, null, url);
+            window.history.pushState(data, null, url);
             this.update();
         }
     }
@@ -150,7 +150,7 @@ export default class Router extends HTMLElement {
 
         if (component) {
             // Remove all child nodes under outlet element
-            while (this.outlet.firstChild) {
+            while (this.outlet && this.outlet.firstChild) {
                 this.outlet.removeChild(this.outlet.firstChild);
             }
 
@@ -180,8 +180,8 @@ export default class Router extends HTMLElement {
         }
     }
 
-    go(url) {
-        this.navigate(url);
+    go(url,data) {
+        this.navigate(url,data);
     }
 
     back() {
