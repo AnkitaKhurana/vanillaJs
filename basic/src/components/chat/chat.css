@@ -1,0 +1,23 @@
+.chat__list__item {
+  padding: 15px;
+  margin : 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.chat__list__item_left{
+    display: flex;
+    align-items: center;
+}
+
+.chat__list__item__lastMessage {
+  color: #a0a1a1;
+  font-size: small;
+}
+
+.chat__list__item__img img{
+    width: 20px;
+    margin-right: 20px;
+}

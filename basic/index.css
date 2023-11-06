@@ -1,0 +1,64 @@
+html,
+body {
+  padding: 0px;
+}
+
+.chat__section {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  margin: 40px;
+  border: solid;
+  height: 800px;
+}
+
+.chat__section_tab {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#chat__list {
+  background-color: white;
+   position: relative;
+}
+
+.chat__open {
+  background-color: #f1f3f6;
+  display: none;
+  border-left: solid;
+  position: relative;
+}
+
+.open {
+  display: block;
+}
+
+#chat__list__content {
+  cursor: pointer;
+}
+
+.bot {
+  background-color: white;
+  padding: 10px;
+  margin: 4px;
+}
+
+.user {
+  padding: 10px;
+  background-color: #2973f0;
+  color : white;
+  margin: 4px;
+}
+
+.input__section {
+  width: 100%;
+  padding: 9px;
+  position: absolute;
+  bottom: 0;
+}
+.opt {
+  background: #f1f3f6;
+  padding: 11px;
+  margin: 1px;
+}
